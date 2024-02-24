@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Getting Started with ml5.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+    <script defer src="main.js"></script>
+  </head>
+
+  <body>
+    <video id="videoElement" width="500px" height="400px" autoplay></video>
+    <button id="phone">phone</button><button id="book">book</button>
+    <botton id="training">train</botton>
+    <button id="save">save</button>
+
+    <h1 id="result"></h1>
+
+    <script>
+      // Accessing the video element
+      var video = document.getElementById("videoElement");
+
+      // Using navigator.mediaDevices.getUserMedia to access the camera
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            // Setting the video source to the stream from the camera
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+    </script>
+  </body>
+</html>
